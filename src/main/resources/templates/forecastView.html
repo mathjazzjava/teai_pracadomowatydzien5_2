@@ -6,7 +6,7 @@
     <title>Forecast</title>
 </head>
 <h2>Oto pogoda w Twoim mieście: </h2>
-<p>Wpisz nazwę miasta beż polskich liter.</p>
+<p>Wpisz nazwę miasta bez polskich liter.</p>
 <form th:action="@{/add-city}" th:object="${newCity}" method="post">
     <input type="text" th:field="*{stacja}"/>
     <input type="submit" value="Zatwierdź miasto"/>
