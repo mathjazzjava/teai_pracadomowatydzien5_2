@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecast</title>
+</head>
+<h2>Oto pogoda w Twoim mieście: </h2>
+<p>Wpisz nazwę miasta beż polskich liter.</p>
+<form th:action="@{/add-city}" th:object="${newCity}" method="post">
+    <input type="text" th:field="*{stacja}"/>
+    <input type="submit" value="Zatwierdź miasto"/>
+</form>
+<h3>Wybrałeś: <span th:text="${forecast.getStacja()}"></span></h3>
+<p>Jeżeli mimo to widzisz wyniki dla: Warszawa, to prawdopodobnie miasta nie ma na liście albo użyłeś niedozwolonych znaków!</p>
+<table border>
+   <tr>
+       <td>Id Stacji</td>
+       <td>Miasto</td>
+       <td>Data pomiaru</td>
+       <td>Godzina pomiaru</td>
+       <td>Temperatura</td>
+       <td>Prędkość wiatru</td>
+       <td>Kierunek wiatru</td>
+       <td>Wilgotność względna</td>
+       <td>Suma opadu</td>
+       <td>Ciśnienie</td>
+       <td>Dodatkowe elementy</td>
+   </tr>
+    <tr th:object="${forecast}">
+        <td th:text="*{idStacji}"></td>
+        <td th:text="*{stacja}"></td>
+        <td th:text="*{dataPomiaru}"></td>
+        <td th:text="*{godzinaPomiaru}"></td>
+        <td th:text="*{temperatura}"></td>
+        <td th:text="*{predkoscWiatru}"></td>
+        <td th:text="*{kierunekWiatru}"></td>
+        <td th:text="*{wilgotnoscWzgledna}"></td>
+        <td th:text="*{sumaOpadu}"></td>
+        <td th:text="*{cisnienie}"></td>
+        <td th:text="*{additionalProperties}"></td>
+    </tr>
+</table>
+</body>
+</html>
